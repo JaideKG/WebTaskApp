@@ -1,0 +1,18 @@
+﻿@model WebTaskApp.Models.User
+@{
+    ViewBag.Title = "AddTask";
+}
+
+<h2>AddTask</h2>
+
+@*These forms are used to do my different functions*@
+@*This first form is for adding a new item*@
+<form action="/Home/ListedTask">
+    Description<input type="text" name="Description" />
+    DueDate<input type="datetime" name="DueDate" />
+    Completed? <input type="checkbox" name="Status" value="true" />
+    <input type="hidden" name="newUser" value="@Model.UserID" />
+    <input type="submit" value="submit tasks" />
+</form>
+
+

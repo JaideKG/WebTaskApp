@@ -1,0 +1,74 @@
+﻿@model WebTaskApp.Models.User
+{
+    ViewBag.Title = "Greeting";
+}
+
+<h2>Greetings</h2>
+
+<h2>@ViewBag.UserName</h2>
+
+@if (ViewBag.Tasks != null)
+{
+    <table>
+        <tr>
+            <th>Description</th>
+            <template>
+            </template>
+            <th>DueDate</th>
+            <template>
+            </template>
+            <th>Status</th>
+            <template>
+            </template>
+            <th>UserID</th>
+            <template>
+            </template>
+            <th>TaskID</th>
+        </tr>
+
+        @for (int i = 0; i < ViewBag.Tasks.Count; i++)
+
+        {
+            <tr>
+                <td>@ViewBag.Tasks[i].Description</td>
+                <td>@ViewBag.Tasks[i].DueDate</td>
+                <td>@ViewBag.Tasks[i].Status</td>
+                <td>@ViewBag.Tasks[i].UserID</td>
+                <td>@ViewBag.Tasks[i].TaskID</td>
+
+            </tr>
+
+        }
+    </table>
+}
+else
+{
+    <h2>You don't have any items.</h2>
+}
+
+
+@*These forms are used to do my different functions*@
+@*This first form is for adding a new item*@
+<form action="/Home/AddTask">
+    <input type="text" name="Tasks" />
+    <input type="hidden" name="newUser" value="@Model.UserID" />
+    <input type="submit" value="Edit Task" />
+</form>
+@*This form is for removing an item by it ItemID*@
+<form action="/Home/AddTask">
+    <input type="text" name="Tasks" />
+    <input type="hidden" name="newUser" value="@Model.UserID" />
+    <input type="submit" value="List Task" />
+</form>
+@*This form is for finding items for a specific user*@
+<form action="/Home/AddTask">
+    <input type="text" name="Task" />
+    <input type="hidden" name="newUser" value="@Model.UserID" />
+    <input type="submit" value="Remove Task" />
+</form>
+<form action="/Home/AddTask">
+    <input type="hidden" name="newUser" value="@ViewBag.UserID" />
+    <input type="submit" value="Add a new Task" />
+</form>
+
+
